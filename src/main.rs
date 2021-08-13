@@ -22,7 +22,7 @@ fn connect() -> redis::Connection {
     };
 
     let redis_conn_url = format!("{}://:{}@{}", uri_scheme, redis_password, redis_host_name);
-    // println!("{}", redis_conn_url)
+    // println!("{}", redis_conn_url);
 
     redis::Client::open(redis_conn_url)
         .expect("Invalid connection URL")
@@ -100,7 +100,7 @@ fn hash() {
         .hget(format!("{}:{}", prefix, "go"), "repo")
         .expect("failed to execute HGET");
 
-    println!("go redis driver repo: {:?}", repo_name);
+    println!("\ngo redis driver repo: {:?}", repo_name);
 }
 
 fn list() {
@@ -161,7 +161,7 @@ fn set() {
     println!("does user1 exist in the set? {}", is_member); // true
 
     let users: Vec<String> = conn.smembers(set_name).expect("failed to execute SMEMBERS");
-    println!("listing users in set"); // true
+    println!("listing users in set: ");
 
     for user in users {
         println!("user: {}", user)
@@ -201,7 +201,7 @@ fn sorted_set() {
     let leaderboard: Vec<(String, isize)> = conn
         .zrange_withscores(sorted_set, 0, count -1)
         .expect("ZRANGE failed");
-    println!("listing players and scores");
+    println!("listing players and scores: ");
 
     for item in leaderboard {
         println!("{} = {}", item.0, item.1)
