@@ -5,11 +5,11 @@ Demo to interact with Redis using `redis-rs` client
 Uses common redis data structures like String, Hash, List
 using low and high level APIs
 
-uses any redis instance, tested with the redis docker image
+#### uses any redis instance, tested with the redis docker image:
 
 `docker run --rm -p 6379:6379 redis`
 
-set redis hostname, password, tls
+#### set redis hostname, password, tls:
 
 `export REDIS_HOSTNAME=localhost:6379`
 <br>
@@ -23,7 +23,8 @@ set redis hostname, password, tls
 then run it:
 `cargo run`
 
-if it worked you should see some output, like:
+#### if it worked you should see some output, like:
+
 ```
 ******** Running SET, GET, INCR commands ********value for 'foo' = bar
 counter = 4
